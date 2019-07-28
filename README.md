@@ -176,6 +176,7 @@ tfplan.json
 ```
 ### Step 3 : Write the OPA policy to check the plan
 Modified the existing policy file to match as per the updated json format. I tested my update policy file here (https://play.openpolicyagent.org/)
+
 terraform.rego
 ```
 package terraform.analysis
@@ -266,6 +267,49 @@ num_modifies[resource_type] = num {
 ```
 ### Step 4 :  Evaluate the OPA policy on the Terraform plan
 
+Opa Policy evaluation :
+
 ``` opa eval --data terraform.rego --input tfplan.json "data.terraform.analysis.authz" ```
 
+Output :
+```
+{
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": false,
+          "text": "data.terraform.analysis.authz",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+Opa Policy evaluation :
+
 ``` opa eval --data terraform.rego --input tfplan.json "data.terraform.analysis.score" ```
+
+Output :
+```
+{
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": 11,
+          "text": "data.terraform.analysis.score",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+```
