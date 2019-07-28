@@ -1,0 +1,88 @@
+{
+  "aws_autoscaling_group": {
+    "address": "aws_autoscaling_group.my_asg",
+    "mode": "managed",
+    "type": "aws_autoscaling_group",
+    "name": "my_asg",
+    "provider_name": "aws",
+    "schema_version": 0,
+    "values": {
+      "availability_zones": [
+        "us-west-1a"
+      ],
+      "desired_capacity": 4,
+      "enabled_metrics": null,
+      "force_delete": true,
+      "health_check_grace_period": 300,
+      "health_check_type": "ELB",
+      "initial_lifecycle_hook": [],
+      "launch_configuration": "my_web_config",
+      "launch_template": [],
+      "max_size": 5,
+      "metrics_granularity": "1Minute",
+      "min_elb_capacity": null,
+      "min_size": 1,
+      "mixed_instances_policy": [],
+      "name": "my_asg",
+      "name_prefix": null,
+      "placement_group": null,
+      "protect_from_scale_in": false,
+      "suspended_processes": null,
+      "tag": [],
+      "tags": null,
+      "termination_policies": null,
+      "timeouts": null,
+      "wait_for_capacity_timeout": "10m",
+      "wait_for_elb_capacity": null
+    }
+  },
+  "aws_instance": {
+    "address": "aws_instance.web",
+    "mode": "managed",
+    "type": "aws_instance",
+    "name": "web",
+    "provider_name": "aws",
+    "schema_version": 1,
+    "values": {
+      "ami": "ami-09b4b74c",
+      "credit_specification": [],
+      "disable_api_termination": null,
+      "ebs_optimized": null,
+      "get_password_data": false,
+      "iam_instance_profile": null,
+      "instance_initiated_shutdown_behavior": null,
+      "instance_type": "t2.micro",
+      "monitoring": null,
+      "source_dest_check": true,
+      "tags": null,
+      "timeouts": null,
+      "user_data": null,
+      "user_data_base64": null
+    }
+  },
+  "aws_launch_configuration": {
+    "address": "aws_launch_configuration.my_web_config",
+    "mode": "managed",
+    "type": "aws_launch_configuration",
+    "name": "my_web_config",
+    "provider_name": "aws",
+    "schema_version": 0,
+    "values": {
+      "associate_public_ip_address": false,
+      "enable_monitoring": true,
+      "ephemeral_block_device": [],
+      "iam_instance_profile": null,
+      "image_id": "ami-09b4b74c",
+      "instance_type": "t2.micro",
+      "name": "my_web_config",
+      "name_prefix": null,
+      "placement_tenancy": null,
+      "security_groups": null,
+      "spot_price": null,
+      "user_data": null,
+      "user_data_base64": null,
+      "vpc_classic_link_id": null,
+      "vpc_classic_link_security_groups": null
+    }
+  }
+}
